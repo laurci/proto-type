@@ -1,4 +1,4 @@
-# grpcool
+# proto-type
 
 ## Building and runnning
 
