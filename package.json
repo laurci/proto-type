@@ -15,6 +15,7 @@
         "protobufjs": "^7.1.2"
     },
     "devDependencies": {
+        "@laurci/injector": "latest",
         "@types/node": "^18.11.3",
         "@typescript-eslint/eslint-plugin": "^5.40.0",
         "@typescript-eslint/parser": "^5.40.0",
@@ -23,8 +24,7 @@
         "rimraf": "^3.0.2",
         "typescript": "npm:@laurci/typescript@latest",
         "typescript-formatter": "^7.2.2",
-        "utils": "link:../meta-utils/utils",
-        "@laurci/injector": "link:../meta-utils/injector"
+        "utils": "npm:@laurci/utils@latest"
     },
     "resolutions": {
         "typescript": "npm:@laurci/typescript@latest"
