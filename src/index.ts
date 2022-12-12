@@ -1,10 +1,15 @@
-import "./node-globals";
+import { bootstrap as bootstrapUtils } from "utils";
+bootstrapUtils({
+    all: true
+});
+
+import { bootstrap } from "./lib";
+bootstrap();
+
+import { debug } from "utils/debug";
 
 import { client } from "./client";
 import { proto } from "./meta/proto";
-import { debug } from "./meta/debug";
-
-console.log("hello world!");
 
 const cl = client(proto!("../test.proto"));
 

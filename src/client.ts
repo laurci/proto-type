@@ -1,4 +1,4 @@
-import { debug } from "./meta/debug";
+import { debug } from "utils/debug";
 import protobuf, { RPCImpl } from "protobufjs";
 
 export type ClientService<T> = {

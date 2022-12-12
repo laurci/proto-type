@@ -2,7 +2,8 @@ import { FunctionMacro, IntrinsicTypes, isStringLiteral, ObjectMemberTypeDefinit
 import * as Path from "path";
 import * as Fs from "fs";
 import { FieldType, parse as parseProto, ProtoDocument, ServiceDefinition, BaseType, SyntaxType, MessageDefinition } from "proto-parser";
-import { getGlobalInvokeExpression } from "./lib";
+import { createInjectorExpression } from "@laurci/injector/lib/utils";
+
 import type { RawMethodDefinition, RawServiceDefinition } from "../client";
 
 function parseBaseType(baseType: BaseType) {
@@ -160,11 +161,15 @@ export macro function proto(this: FunctionMacro, _protoPath: string): void {
         const services = parseServicesRuntime(ast);
 
         node.replace(
-            getGlobalInvokeExpression(factory, "raw_proto", [
-                factory.createIdentifier("__dirname"),
-                factory.createStringLiteral(realtiveProtoPath),
-                factory.createStringLiteral(JSON.stringify(services))
-            ])
+            factory.createCallExpression(
+                createInjectorExpression(factory, "rawProto"),
+                [],
+                [
+                    factory.createIdentifier("__dirname"),
+                    factory.createStringLiteral(realtiveProtoPath),
+                    factory.createStringLiteral(JSON.stringify(services))
+                ]
+            ),
         );
     });
 
