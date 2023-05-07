@@ -1,0 +1,8 @@
+size: small
+description: |
+  This project uses the features of my compiler to create a better RPC client/server framework using  Google ProtoBuf. You can describe your messages and RPCs like normal using ProtoBuf and then use the `proto!` macro to load them in. You can then use the instance returned by the macro to create a client or a server. 
+
+  The `proto!` macro parses the ProtoBuf you provided and extracts the needed information. It then generates code that can be used by both the client and the server to encode/decode the messages and RPCs. It also generated the types to match the ProtoBuf.
+tags:
+  - meta-programming
+  - RPC
